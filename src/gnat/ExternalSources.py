@@ -10,14 +10,14 @@ Copyright (c) 2007 Chris Sutton. All rights reserved.
 from logging import log, error, warning, info, debug
 
 def addIsophonicsTrackLinks(rdfhub):
-	"""Add links to isophonics.net resources.
-	   
-	   For each subject URI beginning http://zitgist.com/track/ in the given rdf db,
-	   adds an owl:sameAs link to the corresponding http://isophonics.net/track resource.
-	"""
-	
-	zgURIs = rdfhub.getSubjURIsWithBase("http://zitgist.com/music/", "batch_fp")
-	for zgURI in zgURIs:
-		ipURI = zgURI.replace("http://zitgist.com/music/", "http://dbtune.org/musicbrainz/resource/")
-		debug("Adding sameAs link from %s to %s", zgURI, ipURI)
-		rdfhub.addSameAs(zgURI, ipURI)
+    """Add links to isophonics.net resources.
+
+       For each subject URI beginning http://zitgist.com/track/ in the given rdf db,
+       adds an owl:sameAs link to the corresponding http://isophonics.net/track resource.
+    """
+
+    zgURIs = rdfhub.getSubjURIsWithBase("http://zitgist.com/music/", "batch_fp")
+    for zgURI in zgURIs:
+        ipURI = zgURI.replace("http://zitgist.com/music/", "http://dbtune.org/musicbrainz/resource/")
+        debug("Adding sameAs link from %s to %s", zgURI, ipURI)
+        rdfhub.addSameAs(zgURI, ipURI)
